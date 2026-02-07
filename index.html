@@ -10,7 +10,7 @@
             padding: 0;
             box-sizing: border-box;
         }
-        
+
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
@@ -21,7 +21,7 @@
             align-items: center;
             padding: 20px;
         }
-        
+
         .container {
             max-width: 800px;
             width: 100%;
@@ -32,12 +32,12 @@
             border: 1px solid rgba(255, 255, 255, 0.1);
             box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
         }
-        
+
         header {
             text-align: center;
             margin-bottom: 30px;
         }
-        
+
         h1 {
             font-size: 2.5rem;
             margin-bottom: 10px;
@@ -46,12 +46,12 @@
             -webkit-text-fill-color: transparent;
             background-clip: text;
         }
-        
+
         .tagline {
             color: #888;
             font-size: 1.1rem;
         }
-        
+
         .score-board {
             display: flex;
             justify-content: space-around;
@@ -60,23 +60,23 @@
             background: rgba(0, 0, 0, 0.2);
             border-radius: 15px;
         }
-        
+
         .stat {
             text-align: center;
         }
-        
+
         .stat-value {
             font-size: 2rem;
             font-weight: bold;
             color: #5a9a8c;
         }
-        
+
         .stat-label {
             font-size: 0.9rem;
             color: #888;
             margin-top: 5px;
         }
-        
+
         .policy-card {
             background: rgba(255, 255, 255, 0.08);
             border-radius: 15px;
@@ -84,7 +84,7 @@
             margin-bottom: 30px;
             border-left: 4px solid #5a9a8c;
         }
-        
+
         .category {
             display: inline-block;
             padding: 5px 15px;
@@ -94,25 +94,25 @@
             margin-bottom: 15px;
             color: #5a9a8c;
         }
-        
+
         .policy-text {
             font-size: 1.3rem;
             line-height: 1.6;
             margin-bottom: 20px;
         }
-        
+
         .question {
             color: #f39c12;
             font-weight: bold;
             margin-bottom: 20px;
         }
-        
+
         .choices {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
             gap: 15px;
         }
-        
+
         .choice-btn {
             padding: 15px 20px;
             background: rgba(255, 255, 255, 0.1);
@@ -123,29 +123,29 @@
             cursor: pointer;
             transition: all 0.3s ease;
         }
-        
+
         .choice-btn:hover {
             background: rgba(90, 154, 140, 0.3);
             border-color: #5a9a8c;
             transform: translateY(-2px);
         }
-        
+
         .choice-btn:disabled {
             opacity: 0.5;
             cursor: not-allowed;
             transform: none;
         }
-        
+
         .choice-btn.correct {
             background: rgba(39, 174, 96, 0.3);
             border-color: #27ae60;
         }
-        
+
         .choice-btn.wrong {
             background: rgba(231, 76, 60, 0.3);
             border-color: #e74c3c;
         }
-        
+
         .reveal {
             display: none;
             background: rgba(0, 0, 0, 0.3);
@@ -154,33 +154,33 @@
             margin-top: 20px;
             text-align: center;
         }
-        
+
         .reveal.show {
             display: block;
             animation: fadeIn 0.5s ease;
         }
-        
+
         @keyframes fadeIn {
             from { opacity: 0; transform: translateY(20px); }
             to { opacity: 1; transform: translateY(0); }
         }
-        
+
         .answer-president {
             font-size: 2rem;
             margin-bottom: 10px;
         }
-        
+
         .answer-party {
             font-size: 1.2rem;
             color: #888;
             margin-bottom: 15px;
         }
-        
+
         .year {
             font-size: 1rem;
             color: #5a9a8c;
         }
-        
+
         .bias-meter {
             margin-top: 30px;
             padding: 20px;
@@ -188,17 +188,17 @@
             border-radius: 15px;
             display: none;
         }
-        
+
         .bias-meter.show {
             display: block;
         }
-        
+
         .bias-title {
             font-size: 1.2rem;
             margin-bottom: 15px;
             color: #f39c12;
         }
-        
+
         .bias-bar {
             height: 30px;
             background: rgba(255, 255, 255, 0.1);
@@ -206,14 +206,14 @@
             overflow: hidden;
             position: relative;
         }
-        
+
         .bias-fill {
             height: 100%;
             background: linear-gradient(90deg, #27ae60, #f39c12, #e74c3c);
             border-radius: 15px;
             transition: width 0.5s ease;
         }
-        
+
         .bias-labels {
             display: flex;
             justify-content: space-between;
@@ -221,7 +221,7 @@
             font-size: 0.85rem;
             color: #888;
         }
-        
+
         .next-btn {
             display: none;
             width: 100%;
@@ -235,16 +235,16 @@
             margin-top: 20px;
             transition: all 0.3s ease;
         }
-        
+
         .next-btn.show {
             display: block;
         }
-        
+
         .next-btn:hover {
             background: #4a8a7c;
             transform: translateY(-2px);
         }
-        
+
         .fun-fact {
             margin-top: 20px;
             padding: 15px;
@@ -254,22 +254,22 @@
             font-style: italic;
             display: none;
         }
-        
+
         .fun-fact.show {
             display: block;
         }
-        
+
         .start-screen {
             text-align: center;
         }
-        
+
         .mode-select {
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 30px;
             margin-top: 40px;
         }
-        
+
         .mode-card {
             background: rgba(255, 255, 255, 0.05);
             border: 2px solid rgba(255, 255, 255, 0.1);
@@ -278,30 +278,30 @@
             cursor: pointer;
             transition: all 0.3s ease;
         }
-        
+
         .mode-card:hover {
             background: rgba(90, 154, 140, 0.1);
             border-color: #5a9a8c;
             transform: translateY(-5px);
         }
-        
+
         .mode-icon {
             font-size: 3rem;
             margin-bottom: 15px;
         }
-        
+
         .mode-title {
             font-size: 1.4rem;
             color: #5a9a8c;
             margin-bottom: 10px;
         }
-        
+
         .mode-desc {
             font-size: 0.95rem;
             color: #888;
             line-height: 1.5;
         }
-        
+
         .start-btn {
             padding: 20px 60px;
             background: linear-gradient(45deg, #5a9a8c, #4a8a7c);
@@ -313,12 +313,12 @@
             transition: all 0.3s ease;
             margin-top: 30px;
         }
-        
+
         .start-btn:hover {
             transform: translateY(-3px);
             box-shadow: 0 10px 30px rgba(90, 154, 140, 0.3);
         }
-        
+
         .reaction-btn {
             padding: 20px 30px;
             font-size: 1.2rem;
@@ -329,35 +329,35 @@
             cursor: pointer;
             transition: all 0.3s ease;
         }
-        
+
         .reaction-btn:hover {
             transform: translateY(-3px);
         }
-        
+
         .reaction-btn.like {
             border-color: #27ae60;
         }
-        
+
         .reaction-btn.like:hover {
             background: rgba(39, 174, 96, 0.2);
         }
-        
+
         .reaction-btn.middle {
             border-color: #f39c12;
         }
-        
+
         .reaction-btn.middle:hover {
             background: rgba(243, 156, 18, 0.2);
         }
-        
+
         .reaction-btn.hate {
             border-color: #e74c3c;
         }
-        
+
         .reaction-btn.hate:hover {
             background: rgba(231, 76, 60, 0.2);
         }
-        
+
         .hidden {
             display: none;
         }
@@ -369,42 +369,42 @@
             <h1>🗳️ Policy Blindspot</h1>
             <p class="tagline">Can you guess who proposed it? No names, just policy.</p>
         </header>
-        
+
         <div class="start-screen" id="startScreen">
             <p style="font-size: 1.2rem; margin: 30px 0; line-height: 1.8;">
                 Discover how much political tribalism affects your judgment.
                 <br><br>
                 Choose your path below:
             </p>
-            
+
             <div class="mode-select">
                 <div class="mode-card" onclick="startGame('guess')">
                     <div class="mode-icon">🕵️</div>
                     <div class="mode-title">Guess the President</div>
                     <div class="mode-desc">
-                        See a policy without knowing who proposed it. 
-                        Try to guess which president created it. 
+                        See a policy without knowing who proposed it.
+                        Try to guess which president created it.
                         Discover how well you actually know political history!
                     </div>
                 </div>
-                
+
                 <div class="mode-card" onclick="startGame('alignment')">
                     <div class="mode-icon">⚖️</div>
-                    <div class="mode-title">Policy Alignment</div>
+                    <div class="mode-title">You Decide</div>
                     <div class="mode-desc">
-                        See policies without any party labels. 
-                        Simply rate them: Like, Neutral, or Dislike. 
-                        At the end, discover where you actually lean politically!
+                        YOU are the voter. Policies come up for your approval.
+                        Simply vote: Approve, Reject, or Undecided.
+                        At the end, discover which party's policies you actually supported!
                     </div>
                 </div>
             </div>
         </div>
-        
+
         <div id="gameArea" class="hidden">
             <div style="text-align: center; margin-bottom: 20px; color: #888; font-size: 1rem;" id="questionCounter">
                 Question 1 of 20
             </div>
-            
+
             <div class="score-board">
                 <div class="stat">
                     <div class="stat-value" id="correctCount">0</div>
@@ -419,7 +419,7 @@
                     <div class="stat-label">Accuracy</div>
                 </div>
             </div>
-            
+
             <div class="policy-card">
                 <span class="category" id="category">Healthcare</span>
                 <p class="policy-text" id="policyText">
@@ -430,17 +430,17 @@
                     <!-- Buttons generated by JS -->
                 </div>
             </div>
-            
+
             <div class="reveal" id="reveal">
                 <div class="answer-president" id="answerPresident"></div>
                 <div class="answer-party" id="answerParty"></div>
                 <div class="year" id="answerYear"></div>
             </div>
-            
+
             <div class="fun-fact" id="funFact"></div>
-            
+
             <button class="next-btn" id="nextBtn" onclick="nextPolicy()">Next Policy →</button>
-            
+
             <div class="bias-meter" id="biasMeter">
                 <div class="bias-title">📊 Your Tribal Bias Score</div>
                 <div class="bias-bar">
@@ -459,10 +459,10 @@
     </div>
 
     <script>
-        // Policy database - real policies from various presidents
+        // Policy database - reframed as proposals for the people to vote on
         const policies = [
             {
-                text: "Established a massive economic stimulus package including $1,200 direct payments to most Americans, expanded unemployment benefits, and hundreds of billions in aid to businesses during the COVID-19 pandemic.",
+                text: "We approve sending $1,200 direct payments to most Americans, expanding unemployment benefits, and providing hundreds of billions in aid to businesses during the COVID-19 pandemic.",
                 answer: "Donald Trump",
                 party: "Republican",
                 year: "2020",
@@ -471,7 +471,7 @@
                 fact: "The CARES Act passed with overwhelming bipartisan support, receiving 'yes' votes from 96% of both parties in the Senate."
             },
             {
-                text: "Created a $1.2 trillion infrastructure package to rebuild roads, bridges, public transit, and broadband internet, with the stated goal of creating millions of jobs.",
+                text: "We approve a $1.2 trillion infrastructure package to rebuild roads, bridges, public transit, and broadband internet, with the goal of creating millions of jobs.",
                 answer: "Joe Biden",
                 party: "Democrat",
                 year: "2021",
@@ -480,7 +480,7 @@
                 fact: "This bill had more Republican support in the Senate than any major Biden legislation, with 19 Republicans voting yes."
             },
             {
-                text: "Implemented a ban on travelers from seven predominantly Muslim countries and suspended refugee admissions, citing national security concerns.",
+                text: "We approve restricting entry from seven countries, citing national security concerns.",
                 answer: "Donald Trump",
                 party: "Republican",
                 year: "2017",
@@ -489,7 +489,7 @@
                 fact: "This policy went through multiple court challenges and revisions before being upheld by the Supreme Court in 2018."
             },
             {
-                text: "Established a federal requirement that all Americans must have health insurance or face a tax penalty, while creating marketplaces for subsidized coverage.",
+                text: "We approve a federal requirement that all Americans must have health insurance or face a tax penalty, while creating marketplaces for subsidized coverage.",
                 answer: "Barack Obama",
                 party: "Democrat",
                 year: "2010",
@@ -498,7 +498,7 @@
                 fact: "This policy was originally a Republican idea proposed by the Heritage Foundation in 1989 and implemented by Mitt Romney in Massachusetts."
             },
             {
-                text: "Cut the corporate tax rate from 35% to 21%, reduced individual tax brackets, and doubled the standard deduction, claiming it would spur economic growth.",
+                text: "We approve cutting the corporate tax rate from 35% to 21%, reducing individual tax brackets, and doubling the standard deduction.",
                 answer: "Donald Trump",
                 party: "Republican",
                 year: "2017",
@@ -507,7 +507,7 @@
                 fact: "This was the largest corporate tax cut in U.S. history, reducing rates to their lowest point since 1939."
             },
             {
-                text: "Reversed previous administration's immigration policies, restored DACA protections, and proposed a pathway to citizenship for 11 million undocumented immigrants.",
+                text: "We approve restoring DACA protections and creating a pathway to citizenship for 11 million undocumented immigrants.",
                 answer: "Joe Biden",
                 party: "Democrat",
                 year: "2021",
@@ -516,7 +516,7 @@
                 fact: "Bush actually proposed comprehensive immigration reform with a pathway to citizenship in 2007, but it failed in Congress."
             },
             {
-                text: "Authorized the raid that resulted in the death of Osama bin Laden in Pakistan, a mission described as the most significant achievement against al-Qaeda.",
+                text: "We approve conducting a raid that targets Osama bin Laden in Pakistan.",
                 answer: "Barack Obama",
                 party: "Democrat",
                 year: "2011",
@@ -525,7 +525,7 @@
                 fact: "This decision was made against the advice of some advisors who rated the mission's chance of success at only 50-60%."
             },
             {
-                text: "Created the largest expansion of public lands protection in decades, designating over 2 million acres of wilderness and establishing five new national monuments.",
+                text: "We approve the largest expansion of public lands protection in decades, designating over 2 million acres of wilderness and establishing five new national monuments.",
                 answer: "Joe Biden",
                 party: "Democrat",
                 year: "2023",
@@ -534,7 +534,7 @@
                 fact: "Obama actually protected more land and water than any president in history, but this specific policy was Biden's expansion."
             },
             {
-                text: "Implemented tariffs on over $300 billion worth of Chinese goods, escalating a trade war aimed at reducing the trade deficit and protecting American manufacturing.",
+                text: "We approve placing tariffs on over $300 billion worth of Chinese goods to reduce the trade deficit and protect American manufacturing.",
                 answer: "Donald Trump",
                 party: "Republican",
                 year: "2018-2019",
@@ -543,7 +543,7 @@
                 fact: "Biden actually kept most of these tariffs in place, with his administration calling them 'strategic' rather than reversing them."
             },
             {
-                text: "Signed into law a bill requiring the federal government to negotiate drug prices for Medicare, projected to save taxpayers billions over the next decade.",
+                text: "We approve a bill requiring the federal government to negotiate drug prices for Medicare, projected to save taxpayers billions over the next decade.",
                 answer: "Joe Biden",
                 party: "Democrat",
                 year: "2022",
@@ -552,7 +552,7 @@
                 fact: "Trump actually campaigned on Medicare drug price negotiation in 2016 but didn't implement it during his presidency."
             },
             {
-                text: "Authorized a $700 billion bailout of the financial industry to prevent economic collapse, including direct investments in banks and AIG insurance.",
+                text: "We approve a $700 billion bailout of the financial industry to prevent economic collapse, including direct investments in banks and AIG insurance.",
                 answer: "George W. Bush",
                 party: "Republican",
                 year: "2008",
@@ -561,7 +561,7 @@
                 fact: "This was passed by a Democratic Congress and signed by Bush. Most of the money was eventually repaid with interest."
             },
             {
-                text: "Established a program to provide free community college tuition to all Americans, funded by tax increases on wealthy individuals and corporations.",
+                text: "We approve a program to provide free community college tuition to all Americans, funded by tax increases on wealthy individuals and corporations.",
                 answer: "None - Proposed but Failed",
                 party: "Democrat Proposal",
                 year: "2021",
@@ -570,7 +570,7 @@
                 fact: "This was part of Biden's Build Back Better plan but was stripped from the final legislation by Senator Joe Manchin."
             },
             {
-                text: "Created a new branch of the military specifically for space operations, the first new military branch since the Air Force was created in 1947.",
+                text: "We approve creating a new branch of the military specifically for space operations, the first new military branch since the Air Force was created in 1947.",
                 answer: "Donald Trump",
                 party: "Republican",
                 year: "2019",
@@ -579,7 +579,7 @@
                 fact: "The idea had bipartisan support in Congress, passing the Senate 90-8 and the House 377-48."
             },
             {
-                text: "Issued an executive order requiring federal contractors to pay a minimum wage of $15 per hour, affecting hundreds of thousands of workers.",
+                text: "We approve an executive order requiring federal contractors to pay a minimum wage of $15 per hour, affecting hundreds of thousands of workers.",
                 answer: "Joe Biden",
                 party: "Democrat",
                 year: "2021",
@@ -588,7 +588,7 @@
                 fact: "Obama had previously issued an executive order requiring $10.10 for federal contractors in 2014."
             },
             {
-                text: "Authorized the use of military force against Iraq based on claims of weapons of mass destruction, leading to the 2003 Iraq War.",
+                text: "We approve using military force against Iraq citing intelligence about weapons programs.",
                 answer: "George W. Bush",
                 party: "Republican",
                 year: "2003",
@@ -597,7 +597,7 @@
                 fact: "This had strong bipartisan support initially (82% of House Democrats voted yes), though many later expressed regret."
             },
             {
-                text: "Established protections for up to 800,000 young undocumented immigrants brought to the U.S. as children, allowing them to work legally without fear of deportation.",
+                text: "We approve protections for up to 800,000 young undocumented immigrants brought to the U.S. as children, allowing them to work legally without fear of deportation.",
                 answer: "Barack Obama",
                 party: "Democrat",
                 year: "2012",
@@ -606,7 +606,7 @@
                 fact: "Bush actually tried and failed to pass comprehensive immigration reform with a pathway to citizenship in 2007."
             },
             {
-                text: "Rejoined the Paris Climate Agreement on day one of presidency, recommitting the U.S. to reducing greenhouse gas emissions.",
+                text: "We approve rejoining the Paris Climate Agreement, recommitting the U.S. to reducing greenhouse gas emissions.",
                 answer: "Joe Biden",
                 party: "Democrat",
                 year: "2021",
@@ -615,7 +615,7 @@
                 fact: "The U.S. originally joined under Obama, withdrew under Trump, and rejoined under Biden."
             },
             {
-                text: "Implemented a 'zero tolerance' policy at the southern border that resulted in the separation of thousands of children from their parents.",
+                text: "We approve a 'zero tolerance' prosecution policy at the southern border.",
                 answer: "Donald Trump",
                 party: "Republican",
                 year: "2018",
@@ -624,7 +624,7 @@
                 fact: "While family separations occurred under previous administrations, this was the first systematic policy of separation as a deterrent."
             },
             {
-                text: "Passed the largest civil rights legislation since the 1960s, prohibiting discrimination based on sexual orientation and gender identity in employment.",
+                text: "We approve the largest civil rights legislation since the 1960s, prohibiting discrimination based on sexual orientation and gender identity in employment.",
                 answer: "None - Proposed but Failed",
                 party: "Democrat Proposal",
                 year: "2021",
@@ -633,7 +633,7 @@
                 fact: "The Equality Act passed the House but has stalled in the Senate due to filibuster rules, despite having majority support."
             },
             {
-                text: "Issued more executive orders in the first 100 days than any president since FDR, reversing many of the previous administration's policies.",
+                text: "We approve issuing more executive orders in the first 100 days than any president since FDR, reversing many of the previous administration's policies.",
                 answer: "Joe Biden",
                 party: "Democrat",
                 year: "2021",
@@ -642,7 +642,7 @@
                 fact: "Biden issued 42 executive orders in his first 100 days. Trump issued 32, Obama 19, and George W. Bush 7."
             }
         ];
-        
+
         let currentPolicyIndex = 0;
         let correctCount = 0;
         let totalCount = 0;
@@ -652,12 +652,12 @@
         let actualDemocrat = 0;
         let shuffledPolicies = [];
         let gameMode = 'guess'; // 'guess' or 'alignment'
-        
+
         // Alignment tracking
         let likedPolicies = [];
         let hatedPolicies = [];
         let neutralPolicies = [];
-        
+
         function shuffleArray(array) {
             const newArray = [...array];
             for (let i = newArray.length - 1; i > 0; i--) {
@@ -666,38 +666,38 @@
             }
             return newArray;
         }
-        
+
         function startGame(mode) {
             gameMode = mode;
             document.getElementById('startScreen').classList.add('hidden');
             document.getElementById('gameArea').classList.remove('hidden');
             shuffledPolicies = shuffleArray(policies);
             currentPolicyIndex = 0;
-            
+
             if (mode === 'guess') {
                 loadPolicy();
             } else {
                 loadAlignmentPolicy();
             }
         }
-        
+
         function loadPolicy() {
             if (currentPolicyIndex >= shuffledPolicies.length) {
                 showFinalResults();
                 return;
             }
-            
+
             const policy = shuffledPolicies[currentPolicyIndex];
-            
+
             document.getElementById('questionCounter').textContent = `Question ${currentPolicyIndex + 1} of ${shuffledPolicies.length}`;
             document.getElementById('category').textContent = policy.category;
             document.getElementById('policyText').textContent = policy.text;
             document.getElementById('question').textContent = 'Who proposed this policy?';
-            
+
             const choicesDiv = document.getElementById('choices');
             choicesDiv.innerHTML = '';
             choicesDiv.style.gridTemplateColumns = 'repeat(2, 1fr)';
-            
+
             policy.choices.forEach(choice => {
                 const btn = document.createElement('button');
                 btn.className = 'choice-btn';
@@ -705,36 +705,36 @@
                 btn.onclick = () => makeGuess(choice);
                 choicesDiv.appendChild(btn);
             });
-            
+
             document.getElementById('reveal').classList.remove('show');
             document.getElementById('nextBtn').classList.remove('show');
             document.getElementById('funFact').classList.remove('show');
             document.getElementById('biasMeter').classList.remove('show');
         }
-        
+
         function loadAlignmentPolicy() {
             if (currentPolicyIndex >= shuffledPolicies.length) {
                 showAlignmentResults();
                 return;
             }
-            
+
             const policy = shuffledPolicies[currentPolicyIndex];
-            
+
             document.getElementById('questionCounter').textContent = `Question ${currentPolicyIndex + 1} of ${shuffledPolicies.length}`;
             document.getElementById('category').textContent = policy.category;
             document.getElementById('policyText').textContent = policy.text;
-            document.getElementById('question').textContent = 'How do you feel about this policy?';
-            
+            document.getElementById('question').textContent = 'How do you vote on this policy?';
+
             const choicesDiv = document.getElementById('choices');
             choicesDiv.innerHTML = '';
             choicesDiv.style.gridTemplateColumns = 'repeat(3, 1fr)';
-            
+
             const reactions = [
-                { text: '👍 Like It', class: 'like', value: 'like' },
-                { text: '😐 Neutral', class: 'middle', value: 'neutral' },
-                { text: '👎 Dislike', class: 'hate', value: 'hate' }
+                { text: '✅ Approve', class: 'like', value: 'like' },
+                { text: '🤷 Undecided', class: 'middle', value: 'neutral' },
+                { text: '❌ Reject', class: 'hate', value: 'hate' }
             ];
-            
+
             reactions.forEach(reaction => {
                 const btn = document.createElement('button');
                 btn.className = `reaction-btn ${reaction.class}`;
@@ -742,19 +742,19 @@
                 btn.onclick = () => makeAlignmentChoice(reaction.value);
                 choicesDiv.appendChild(btn);
             });
-            
+
             document.getElementById('reveal').classList.remove('show');
             document.getElementById('nextBtn').classList.remove('show');
             document.getElementById('funFact').classList.remove('show');
             document.getElementById('biasMeter').classList.remove('show');
-            
+
             // Hide stats in alignment mode
             document.querySelector('.score-board').style.display = 'none';
         }
-        
+
         function makeAlignmentChoice(reaction) {
             const policy = shuffledPolicies[currentPolicyIndex];
-            
+
             // Track the reaction
             if (reaction === 'like') {
                 likedPolicies.push(policy);
@@ -763,18 +763,18 @@
             } else {
                 neutralPolicies.push(policy);
             }
-            
+
             totalCount++;
-            
+
             // Show next button immediately - NO REVEAL until end
             document.getElementById('nextBtn').classList.add('show');
             document.getElementById('nextBtn').onclick = nextAlignmentPolicy;
-            
+
             // Disable all buttons
             const buttons = document.querySelectorAll('.reaction-btn');
             buttons.forEach(btn => btn.disabled = true);
         }
-        
+
         function nextAlignmentPolicy() {
             currentPolicyIndex++;
             if (currentPolicyIndex >= shuffledPolicies.length) {
@@ -783,11 +783,11 @@
                 loadAlignmentPolicy();
             }
         }
-        
+
         function makeGuess(guess) {
             const policy = shuffledPolicies[currentPolicyIndex];
             const buttons = document.querySelectorAll('.choice-btn');
-            
+
             buttons.forEach(btn => {
                 btn.disabled = true;
                 if (btn.textContent === policy.answer) {
@@ -796,49 +796,49 @@
                     btn.classList.add('wrong');
                 }
             });
-            
+
             const isCorrect = guess === policy.answer;
             if (isCorrect) {
                 correctCount++;
             }
             totalCount++;
-            
+
             // Track alignment
-            const guessedParty = guess.includes('Trump') || guess.includes('Bush') || 
+            const guessedParty = guess.includes('Trump') || guess.includes('Bush') ||
                                 guess.includes('Reagan') ? 'Republican' : 'Democrat';
             const actualParty = policy.party;
-            
+
             if (guessedParty === 'Republican') guessedRepublican++;
             else guessedDemocrat++;
-            
+
             if (actualParty === 'Republican') actualRepublican++;
             else actualDemocrat++;
-            
+
             // Update UI
             document.getElementById('correctCount').textContent = correctCount;
             document.getElementById('totalCount').textContent = totalCount;
-            document.getElementById('accuracy').textContent = 
+            document.getElementById('accuracy').textContent =
                 Math.round((correctCount / totalCount) * 100) + '%';
-            
+
             // Show reveal
             document.getElementById('answerPresident').textContent = policy.answer;
             document.getElementById('answerParty').textContent = policy.party;
             document.getElementById('answerYear').textContent = policy.year;
             document.getElementById('reveal').classList.add('show');
-            
+
             // Show fun fact
             document.getElementById('funFact').textContent = '💡 ' + policy.fact;
             document.getElementById('funFact').classList.add('show');
-            
+
             // Show next button
             document.getElementById('nextBtn').classList.add('show');
-            
+
             // Update bias meter after a few rounds
             if (totalCount >= 3) {
                 updateBiasMeter();
             }
         }
-        
+
         function nextPolicy() {
             currentPolicyIndex++;
             if (gameMode === 'guess') {
@@ -847,20 +847,20 @@
                 loadAlignmentPolicy();
             }
         }
-        
+
         function updateBiasMeter() {
             const meter = document.getElementById('biasMeter');
             const fill = document.getElementById('biasFill');
             const desc = document.getElementById('biasDescription');
-            
+
             // Calculate bias score
             // If you consistently guess one party more than they actually appear, that's bias
             const guessRatio = guessedRepublican / totalCount;
             const actualRatio = actualRepublican / totalCount;
             const biasScore = Math.abs(guessRatio - actualRatio) * 100;
-            
+
             fill.style.width = Math.min(biasScore * 3, 100) + '%';
-            
+
             let description = '';
             if (biasScore < 10) {
                 description = "You're judging policies fairly independently! You guess evenly across parties.";
@@ -869,11 +869,11 @@
             } else {
                 description = "Strong tribal bias! You're heavily influenced by who you think proposed policies rather than their content.";
             }
-            
+
             desc.textContent = description;
             meter.classList.add('show');
         }
-        
+
         function showFinalResults() {
             const gameArea = document.getElementById('gameArea');
             gameArea.innerHTML = `
@@ -886,8 +886,8 @@
                     <div style="background: rgba(255,255,255,0.1); padding: 30px; border-radius: 15px; margin: 30px 0;">
                         <h3 style="color: #f39c12; margin-bottom: 15px;">🧠 The Real Lesson</h3>
                         <p style="font-size: 1.1rem; line-height: 1.8;">
-                            If you were surprised by any of these, you're not alone. Most Americans can't accurately 
-                            attribute policies to presidents without party labels. We tend to support or oppose ideas 
+                            If you were surprised by any of these, you're not alone. Most Americans can't accurately
+                            attribute policies to presidents without party labels. We tend to support or oppose ideas
                             based on tribal affiliation rather than the actual content.
                         </p>
                     </div>
@@ -897,45 +897,45 @@
                 </div>
             `;
         }
-        
+
         function showAlignmentResults() {
             // Calculate alignment
             let leftScore = 0;
             let rightScore = 0;
             let totalWeighted = 0;
-            
+
             // Policies liked that are Democrat = +left
             // Policies liked that are Republican = +right
             // Policies hated that are Democrat = +right (opposition)
             // Policies hated that are Republican = +left (opposition)
-            
+
             likedPolicies.forEach(policy => {
                 if (policy.party === 'Democrat') leftScore += 2;
                 if (policy.party === 'Republican') rightScore += 2;
                 totalWeighted += 2;
             });
-            
+
             hatedPolicies.forEach(policy => {
                 if (policy.party === 'Democrat') rightScore += 2;
                 if (policy.party === 'Republican') leftScore += 2;
                 totalWeighted += 2;
             });
-            
+
             neutralPolicies.forEach(policy => {
                 // Neutral counts as 0.5 for both (slight preference)
                 if (policy.party === 'Democrat') { leftScore += 0.5; rightScore += 0.5; }
                 if (policy.party === 'Republican') { leftScore += 0.5; rightScore += 0.5; }
                 totalWeighted += 1;
             });
-            
+
             const total = leftScore + rightScore;
             const leftPercent = total > 0 ? (leftScore / total) * 100 : 50;
             const rightPercent = total > 0 ? (rightScore / total) * 100 : 50;
-            
+
             let alignmentText = '';
             let alignmentColor = '';
             let emoji = '';
-            
+
             if (leftPercent >= 60) {
                 alignmentText = 'You lean LEFT'
                 alignmentColor = '#3498db';
@@ -949,7 +949,7 @@
                 alignmentColor = '#9b59b6';
                 emoji = '⚪';
             }
-            
+
             // Find surprises (liked policies from opposing side)
             const surprises = [];
             if (leftPercent > 50) {
@@ -963,7 +963,7 @@
                     surprises.push(`You liked ${likedDemocrat.length} Democrat policies!`);
                 }
             }
-            
+
             const gameArea = document.getElementById('gameArea');
             gameArea.innerHTML = `
                 <div style="text-align: center; padding: 40px;">
@@ -980,19 +980,19 @@
                             <div style="color: #888; margin-top: 10px;">Right Alignment</div>
                         </div>
                     </div>
-                    
+
                     <div style="background: rgba(255,255,255,0.1); padding: 30px; border-radius: 15px; margin: 30px 0; text-align: left;">
                         <h3 style="color: #f39c12; margin-bottom: 20px; text-align: center;">📊 Your Policy Breakdown</h3>
-                        
+
                         <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-bottom: 20px;">
                             <div>
-                                <strong style="color: #27ae60;">👍 Liked:</strong> ${likedPolicies.length} policies
+                                <strong style="color: #27ae60;">✅ Approved:</strong> ${likedPolicies.length} policies
                             </div>
                             <div>
-                                <strong style="color: #e74c3c;">👎 Disliked:</strong> ${hatedPolicies.length} policies
+                                <strong style="color: #e74c3c;">❌ Rejected:</strong> ${hatedPolicies.length} policies
                             </div>
                             <div>
-                                <strong style="color: #f39c12;">😐 Neutral:</strong> ${neutralPolicies.length} policies
+                                <strong style="color: #f39c12;">🤷 Undecided:</strong> ${neutralPolicies.length} policies
                             </div>
                             <div>
                                 <strong>📋 Total:</strong> ${totalCount} policies
@@ -1011,18 +1011,18 @@
                         <h3 style="color: #5a9a8c; margin-bottom: 15px;">🧠 What This Means</h3>
                         <p style="font-size: 1.1rem; line-height: 1.8;">
                             ${leftPercent > 60 ? 
-                                "You consistently favored policies that were primarily championed by Democratic administrations. Your preferences align with progressive priorities on the issues presented." :
+                                "You consistently approved policies that were primarily championed by Democratic administrations. Your voting record aligns with progressive priorities on the issues presented." :
                              rightPercent > 60 ?
-                                "You consistently favored policies that were primarily championed by Republican administrations. Your preferences align with conservative priorities on the issues presented." :
-                                "You don't strongly favor either party's policies. You're either a true moderate, or your views don't fit neatly into the traditional left-right spectrum."
+                                "You consistently approved policies that were primarily championed by Republican administrations. Your voting record aligns with conservative priorities on the issues presented." :
+                                "You don't strongly favor either party's policies. You're either a true moderate voter, or your views don't fit neatly into the traditional left-right spectrum."
                             }
                         </p>
                         <p style="font-size: 1.1rem; line-height: 1.8; margin-top: 20px; color: #aaa;">
-                            The key insight: You rated these policies <strong>without knowing</strong> which party proposed them. 
-                            This reveals your <em>actual</em> policy preferences, stripped of tribal loyalty.
+                            The key insight: You voted on these policies <strong>without knowing</strong> which party proposed them. 
+                            This reveals your <em>true</em> policy preferences as a voter, stripped of tribal loyalty.
                         </p>
                     </div>
-                    
+
                     <button class="start-btn" onclick="location.reload()" style="margin-top: 20px;">
                         Play Again
                     </button>
