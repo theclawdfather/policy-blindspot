@@ -218,6 +218,49 @@
         .hidden {
             display: none;
         }
+        
+        .breakdown-card {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 12px;
+            padding: 20px;
+            margin: 15px 0;
+            text-align: left;
+        }
+        
+        .breakdown-title {
+            font-size: 1rem;
+            color: #aaa;
+            margin-bottom: 10px;
+        }
+        
+        .breakdown-bar {
+            height: 24px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            overflow: hidden;
+            display: flex;
+        }
+        
+        .breakdown-fill {
+            height: 100%;
+            transition: width 0.5s ease;
+        }
+        
+        .breakdown-fill.dem {
+            background: #3498db;
+        }
+        
+        .breakdown-fill.gop {
+            background: #e74c3c;
+        }
+        
+        .breakdown-labels {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 8px;
+            font-size: 0.85rem;
+            color: #888;
+        }
     </style>
 </head>
 <body>
@@ -231,7 +274,7 @@
             <h2>Welcome, Voter</h2>
             
             <p>
-                You will be presented with 20 real policy proposals from U.S. history.
+                You will be presented with 10 policy proposals drawn from a larger set.
             </p>
             
             <p>
@@ -243,11 +286,6 @@
                 Just read, decide, and vote.
             </p>
             
-            <p>
-                At the end, we'll reveal where your votes actually align.
-                You might be surprised.
-            </p>
-            
             <button class="start-btn" onclick="startVoting()">Start Voting</button>
         </div>
         
@@ -257,7 +295,7 @@
             </div>
             
             <div class="question-counter" id="questionCounter">
-                Proposal 1 of 20
+                Proposal 1 of 10
             </div>
             
             <div class="policy-card">
@@ -278,8 +316,9 @@
     </div>
 
     <script>
-        // Policy proposals - reframed as ballot measures
-        const policies = [
+        // Large policy pool - 40 total, randomly select 10 each time
+        const allPolicies = [
+            // Economy (8)
             {
                 text: "Direct payments of $1,200 to most Americans, expanded unemployment benefits, and hundreds of billions in aid to businesses during a national crisis.",
                 answer: "Donald Trump",
@@ -288,67 +327,18 @@
                 category: "Economy"
             },
             {
-                text: "A $1.2 trillion package to rebuild roads, bridges, public transit, and broadband internet, with the goal of creating millions of jobs.",
+                text: "A $1.2 trillion package to rebuild roads, bridges, public transit, and broadband internet.",
                 answer: "Joe Biden",
                 party: "Democrat",
                 year: "2021",
-                category: "Infrastructure"
-            },
-            {
-                text: "Restricting entry from seven countries, citing national security concerns.",
-                answer: "Donald Trump",
-                party: "Republican",
-                year: "2017",
-                category: "Immigration"
-            },
-            {
-                text: "A federal requirement that all Americans must have health insurance or face a tax penalty, with government-created marketplaces for subsidized coverage.",
-                answer: "Barack Obama",
-                party: "Democrat",
-                year: "2010",
-                category: "Healthcare"
+                category: "Economy"
             },
             {
                 text: "Cutting the corporate tax rate from 35% to 21%, reducing individual tax brackets, and doubling the standard deduction.",
                 answer: "Donald Trump",
                 party: "Republican",
                 year: "2017",
-                category: "Taxes"
-            },
-            {
-                text: "Restoring protections for young undocumented immigrants and creating a pathway to citizenship for 11 million undocumented immigrants.",
-                answer: "Joe Biden",
-                party: "Democrat",
-                year: "2021",
-                category: "Immigration"
-            },
-            {
-                text: "A military raid targeting Osama bin Laden in Pakistan.",
-                answer: "Barack Obama",
-                party: "Democrat",
-                year: "2011",
-                category: "National Security"
-            },
-            {
-                text: "The largest expansion of public lands protection in decades, designating over 2 million acres of wilderness and establishing five new national monuments.",
-                answer: "Joe Biden",
-                party: "Democrat",
-                year: "2023",
-                category: "Environment"
-            },
-            {
-                text: "Placing tariffs on over $300 billion worth of Chinese goods to reduce the trade deficit and protect American manufacturing.",
-                answer: "Donald Trump",
-                party: "Republican",
-                year: "2018",
-                category: "Trade"
-            },
-            {
-                text: "Requiring the federal government to negotiate drug prices for Medicare, projected to save taxpayers billions.",
-                answer: "Joe Biden",
-                party: "Democrat",
-                year: "2022",
-                category: "Healthcare"
+                category: "Economy"
             },
             {
                 text: "A $700 billion bailout of the financial industry to prevent economic collapse, including direct investments in major banks.",
@@ -358,46 +348,92 @@
                 category: "Economy"
             },
             {
-                text: "Free community college tuition for all Americans, funded by tax increases on wealthy individuals and corporations.",
-                answer: "Joe Biden (Failed)",
+                text: "Raising the federal minimum wage to $15 per hour gradually over several years.",
+                answer: "Democrat Proposal",
                 party: "Democrat",
                 year: "2021",
-                category: "Education"
+                category: "Economy"
             },
             {
-                text: "Creating a new branch of the military specifically for space operations.",
-                answer: "Donald Trump",
-                party: "Republican",
-                year: "2019",
-                category: "Defense"
-            },
-            {
-                text: "Requiring all federal contractors to pay a minimum wage of $15 per hour.",
+                text: "Expanding the Child Tax Credit to provide monthly payments to families with children.",
                 answer: "Joe Biden",
                 party: "Democrat",
                 year: "2021",
-                category: "Labor"
+                category: "Economy"
             },
             {
-                text: "Using military force against Iraq citing intelligence about weapons programs.",
-                answer: "George W. Bush",
+                text: "Eliminating the estate tax for all estates under $11 million.",
+                answer: "Donald Trump",
                 party: "Republican",
-                year: "2003",
-                category: "Foreign Policy"
+                year: "2017",
+                category: "Economy"
             },
             {
-                text: "Protecting up to 800,000 young undocumented immigrants brought to the U.S. as children, allowing them to work legally.",
+                text: "Requiring companies to provide paid family leave for new parents.",
+                answer: "Democrat Proposal",
+                party: "Democrat",
+                year: "Various",
+                category: "Economy"
+            },
+            
+            // Healthcare (6)
+            {
+                text: "A federal requirement that all Americans must have health insurance or face a tax penalty, with government-created marketplaces.",
                 answer: "Barack Obama",
                 party: "Democrat",
-                year: "2012",
+                year: "2010",
+                category: "Healthcare"
+            },
+            {
+                text: "Requiring the federal government to negotiate drug prices for Medicare.",
+                answer: "Joe Biden",
+                party: "Democrat",
+                year: "2022",
+                category: "Healthcare"
+            },
+            {
+                text: "Allowing the importation of prescription drugs from Canada to lower costs.",
+                answer: "Bipartisan/Various",
+                party: "Mixed",
+                year: "Various",
+                category: "Healthcare"
+            },
+            {
+                text: "Expanding Medicaid to cover all adults below 138% of the poverty line in every state.",
+                answer: "Barack Obama",
+                party: "Democrat",
+                year: "2010",
+                category: "Healthcare"
+            },
+            {
+                text: "Allowing employers to opt out of covering birth control in health insurance for religious reasons.",
+                answer: "Donald Trump",
+                party: "Republican",
+                year: "2017",
+                category: "Healthcare"
+            },
+            {
+                text: "Creating a public health insurance option to compete with private insurers.",
+                answer: "Democrat Proposal",
+                party: "Democrat",
+                year: "Various",
+                category: "Healthcare"
+            },
+            
+            // Immigration (6)
+            {
+                text: "Restricting entry from seven countries, citing national security concerns.",
+                answer: "Donald Trump",
+                party: "Republican",
+                year: "2017",
                 category: "Immigration"
             },
             {
-                text: "Rejoining the Paris Climate Agreement, recommitting the U.S. to reducing greenhouse gas emissions.",
+                text: "Restoring protections for young undocumented immigrants and creating a pathway to citizenship for 11 million undocumented immigrants.",
                 answer: "Joe Biden",
                 party: "Democrat",
                 year: "2021",
-                category: "Environment"
+                category: "Immigration"
             },
             {
                 text: "A 'zero tolerance' prosecution policy at the southern border.",
@@ -407,6 +443,117 @@
                 category: "Immigration"
             },
             {
+                text: "Protecting up to 800,000 young undocumented immigrants brought to the U.S. as children, allowing them to work legally.",
+                answer: "Barack Obama",
+                party: "Democrat",
+                year: "2012",
+                category: "Immigration"
+            },
+            {
+                text: "Building a physical wall along the entire U.S.-Mexico border.",
+                answer: "Donald Trump",
+                party: "Republican",
+                year: "2016-2020",
+                category: "Immigration"
+            },
+            {
+                text: "Increasing the number of refugees admitted to the United States from 15,000 to 125,000 annually.",
+                answer: "Joe Biden",
+                party: "Democrat",
+                year: "2021",
+                category: "Immigration"
+            },
+            
+            // Environment (6)
+            {
+                text: "The largest expansion of public lands protection in decades, designating over 2 million acres of wilderness.",
+                answer: "Joe Biden",
+                party: "Democrat",
+                year: "2023",
+                category: "Environment"
+            },
+            {
+                text: "Rejoining the Paris Climate Agreement, recommitting the U.S. to reducing greenhouse gas emissions.",
+                answer: "Joe Biden",
+                party: "Democrat",
+                year: "2021",
+                category: "Environment"
+            },
+            {
+                text: "Rolling back environmental regulations on coal plants and vehicle emissions standards.",
+                answer: "Donald Trump",
+                party: "Republican",
+                year: "2017-2020",
+                category: "Environment"
+            },
+            {
+                text: "Banning oil and gas drilling on federal lands.",
+                answer: "Joe Biden",
+                party: "Democrat",
+                year: "2021",
+                category: "Environment"
+            },
+            {
+                text: "Approving the Keystone XL oil pipeline from Canada to the United States.",
+                answer: "Donald Trump",
+                party: "Republican",
+                year: "2017",
+                category: "Environment"
+            },
+            {
+                text: "Setting a goal that 50% of new car sales be electric by 2030.",
+                answer: "Joe Biden",
+                party: "Democrat",
+                year: "2021",
+                category: "Environment"
+            },
+            
+            // National Security/Defense (6)
+            {
+                text: "A military raid targeting Osama bin Laden in Pakistan.",
+                answer: "Barack Obama",
+                party: "Democrat",
+                year: "2011",
+                category: "National Security"
+            },
+            {
+                text: "Creating a new branch of the military specifically for space operations.",
+                answer: "Donald Trump",
+                party: "Republican",
+                year: "2019",
+                category: "National Security"
+            },
+            {
+                text: "Using military force against Iraq citing intelligence about weapons programs.",
+                answer: "George W. Bush",
+                party: "Republican",
+                year: "2003",
+                category: "National Security"
+            },
+            {
+                text: "Withdrawing all U.S. troops from Afghanistan after 20 years of war.",
+                answer: "Joe Biden",
+                party: "Democrat",
+                year: "2021",
+                category: "National Security"
+            },
+            {
+                text: "Banning transgender individuals from serving in the military.",
+                answer: "Donald Trump",
+                party: "Republican",
+                year: "2017",
+                category: "National Security"
+            },
+            {
+                text: "Reversing the ban and allowing transgender individuals to serve openly in the military.",
+                answer: "Joe Biden",
+                party: "Democrat",
+                year: "2021",
+                category: "National Security"
+            },
+            
+            // Civil Rights (4)
+            {
                 text: "The largest civil rights legislation since the 1960s, prohibiting discrimination based on sexual orientation and gender identity in employment.",
                 answer: "Failed in Congress",
                 party: "Democrat",
@@ -414,18 +561,65 @@
                 category: "Civil Rights"
             },
             {
-                text: "Issuing more executive orders in the first 100 days than any president since FDR, reversing many previous administration policies.",
+                text: "Legalizing same-sex marriage nationwide.",
+                answer: "Supreme Court Decision",
+                party: "N/A",
+                year: "2015",
+                category: "Civil Rights"
+            },
+            {
+                text: "Banning critical race theory from being taught in federal employee training programs.",
+                answer: "Donald Trump",
+                party: "Republican",
+                year: "2020",
+                category: "Civil Rights"
+            },
+            {
+                text: "Making lynching a federal hate crime.",
                 answer: "Joe Biden",
                 party: "Democrat",
+                year: "2022",
+                category: "Civil Rights"
+            },
+            
+            // Education (4)
+            {
+                text: "Free community college tuition for all Americans, funded by tax increases on wealthy individuals.",
+                answer: "Proposed",
+                party: "Democrat",
                 year: "2021",
-                category: "Governance"
+                category: "Education"
+            },
+            {
+                text: "Student loan forgiveness of up to $20,000 per borrower.",
+                answer: "Joe Biden",
+                party: "Democrat",
+                year: "2022",
+                category: "Education"
+            },
+            {
+                text: "Allowing parents to use public education funds for private school tuition (school vouchers).",
+                answer: "Various Republican Proposals",
+                party: "Republican",
+                year: "Various",
+                category: "Education"
+            },
+            {
+                text: "Eliminating the Department of Education and returning control to states.",
+                answer: "Republican Proposal",
+                party: "Republican",
+                year: "Various",
+                category: "Education"
             }
         ];
         
         let currentIndex = 0;
         let approvedPolicies = [];
         let deniedPolicies = [];
-        let shuffledPolicies = [];
+        let selectedPolicies = [];
+        
+        // Track by category
+        let categoryVotes = {};
         
         function shuffleArray(array) {
             const newArray = [...array];
@@ -436,27 +630,43 @@
             return newArray;
         }
         
+        function selectRandomPolicies() {
+            // Shuffle all policies and pick first 10
+            const shuffled = shuffleArray(allPolicies);
+            return shuffled.slice(0, 10);
+        }
+        
         function startVoting() {
             document.getElementById('startScreen').classList.add('hidden');
             document.getElementById('voteArea').classList.remove('hidden');
-            shuffledPolicies = shuffleArray(policies);
+            
+            // Select random 10 policies
+            selectedPolicies = selectRandomPolicies();
+            
+            // Initialize category tracking
+            selectedPolicies.forEach(policy => {
+                if (!categoryVotes[policy.category]) {
+                    categoryVotes[policy.category] = { dem: 0, gop: 0, total: 0 };
+                }
+            });
+            
             currentIndex = 0;
             loadPolicy();
         }
         
         function loadPolicy() {
-            if (currentIndex >= shuffledPolicies.length) {
+            if (currentIndex >= selectedPolicies.length) {
                 showResults();
                 return;
             }
             
-            const policy = shuffledPolicies[currentIndex];
+            const policy = selectedPolicies[currentIndex];
             
             // Update progress
-            const progress = ((currentIndex) / shuffledPolicies.length) * 100;
+            const progress = ((currentIndex) / selectedPolicies.length) * 100;
             document.getElementById('progressFill').style.width = progress + '%';
             document.getElementById('questionCounter').textContent = 
-                `Proposal ${currentIndex + 1} of ${shuffledPolicies.length}`;
+                `Proposal ${currentIndex + 1} of ${selectedPolicies.length}`;
             
             // Update policy card
             document.getElementById('category').textContent = policy.category;
@@ -471,12 +681,23 @@
         }
         
         function castVote(vote) {
-            const policy = shuffledPolicies[currentIndex];
+            const policy = selectedPolicies[currentIndex];
             
             if (vote === 'approve') {
                 approvedPolicies.push(policy);
             } else {
                 deniedPolicies.push(policy);
+            }
+            
+            // Track by category
+            categoryVotes[policy.category].total++;
+            if (vote === 'approve') {
+                if (policy.party === 'Democrat') categoryVotes[policy.category].dem++;
+                if (policy.party === 'Republican') categoryVotes[policy.category].gop++;
+            } else {
+                // If denied, opposite party gets the "point"
+                if (policy.party === 'Republican') categoryVotes[policy.category].dem++;
+                if (policy.party === 'Democrat') categoryVotes[policy.category].gop++;
             }
             
             // Disable buttons and highlight choice
@@ -497,7 +718,7 @@
         }
         
         function showResults() {
-            // Calculate alignment
+            // Calculate overall alignment
             let leftScore = 0;
             let rightScore = 0;
             
@@ -507,7 +728,6 @@
             });
             
             deniedPolicies.forEach(policy => {
-                // Denying the opposite party's policy = supporting your side
                 if (policy.party === 'Republican') leftScore += 1;
                 if (policy.party === 'Democrat') rightScore += 1;
             });
@@ -533,6 +753,30 @@
                 color = '#9b59b6';
                 emoji = '⚪';
             }
+            
+            // Build issue breakdown
+            let breakdownHTML = '';
+            Object.keys(categoryVotes).forEach(category => {
+                const cat = categoryVotes[category];
+                if (cat.total > 0) {
+                    const demPercent = (cat.dem / cat.total) * 100;
+                    const gopPercent = (cat.gop / cat.total) * 100;
+                    
+                    breakdownHTML += `
+                        <div class="breakdown-card">
+                            <div class="breakdown-title">${category}</div>
+                            <div class="breakdown-bar">
+                                <div class="breakdown-fill dem" style="width: ${demPercent}%"></div>
+                                <div class="breakdown-fill gop" style="width: ${gopPercent}%"></div>
+                            </div>
+                            <div class="breakdown-labels">
+                                <span style="color: #3498db;">Dem: ${Math.round(demPercent)}%</span>
+                                <span style="color: #e74c3c;">GOP: ${Math.round(gopPercent)}%</span>
+                            </div>
+                        </div>
+                    `;
+                }
+            });
             
             // Build approved list
             let approvedHTML = '';
@@ -581,8 +825,12 @@
                     </div>
                     
                     <div style="background: rgba(255,255,255,0.08); padding: 25px; border-radius: 15px; margin: 25px 0;">
-                        <h3 style="color: #5a9a8c; margin-bottom: 15px; font-size: 1.2rem;">🗳️ How You Voted</h3>
-                        
+                        <h3 style="color: #f39c12; margin-bottom: 20px; font-size: 1.2rem;">📊 Breakdown by Issue</h3>
+                        ${breakdownHTML}
+                    </div>
+                    
+                    <div style="background: rgba(255,255,255,0.08); padding: 25px; border-radius: 15px; margin: 25px 0;">
+                        <h3 style="color: #5a9a8c; margin-bottom: 15px; font-size: 1.1rem;">🗳️ How You Voted</h3>
                         <p style="font-size: 1rem; line-height: 1.7; color: #ccc;">
                             ${leftPercent > 60 ? 
                                 "You consistently approved policies from Democratic presidents and rejected those from Republicans. Your voting record is solidly progressive." :
